@@ -15,15 +15,15 @@ export const Tabs = () => {
     <>
       <div className="tabs is-boxed">
         <ul>
-          <li data-cy="Tab" className={tabId === 'tab-1' ? 'is-active' : ''}>
-            <Link to="/tabs/tab-1">Tab 1</Link>
-          </li>
-          <li data-cy="Tab" className={tabId === 'tab-2' ? 'is-active' : ''}>
-            <Link to="/tabs/tab-2">Tab 2</Link>
-          </li>
-          <li data-cy="Tab" className={tabId === 'tab-3' ? 'is-active' : ''}>
-            <Link to="/tabs/tab-3">Tab 3</Link>
-          </li>
+          {tabs.map(tab => (
+            <li
+              key={tab.id}
+              data-cy="Tab"
+              className={tabId === tab.id ? 'is-active' : ''}
+            >
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+            </li>
+          ))}
         </ul>
       </div>
 
